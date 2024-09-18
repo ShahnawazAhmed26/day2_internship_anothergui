@@ -37,15 +37,48 @@ class _chalktalkState extends State<chalktalk> {
            
         ),
 
-        body: Stack(
-          children: [
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Card(color: Colors.red,))
-          ],
+        body:  Container(
+          child: Stack(
+            children: [
+              SizedBox(
+                width: 400,
+                height: 200,
+                child: 
+                Card(
+                  color: Colors.white,
+                  child:Stack (
+                    children: [
+
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(5),
+                            child: Stack(
+                              children: [
+                             SizedBox(
+                              width: 200,
+                              height: 200,
+                               child: Image(image: AssetImage('assets/bakcground.jpg'),
+                               ),
+                             ),
+                              ]
+                             ),
+                                            
+                          ),
+                        ],
+                      ),
+                      Column(),
+                    ],
+                  ),
+                  
+                  
+                ),
+                ),
+            ],
+          ),
         ),
     );
+    
   }
 }
 
