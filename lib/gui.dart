@@ -17,7 +17,7 @@ class _ChalkTalkState extends State<ChalkTalk> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              'My Booked Session',
+              'Appointments',
               style: TextStyle(
                 color: Colors.green,
                 fontWeight: FontWeight.bold,
@@ -37,11 +37,11 @@ class _ChalkTalkState extends State<ChalkTalk> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0), // Added padding to prevent overflow
+          padding: const EdgeInsets.all(8.0),
           child: Card(
             color: Colors.white,
             child: Padding(
-              padding: const EdgeInsets.all(10.0), // Added padding for aesthetics
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -55,182 +55,179 @@ class _ChalkTalkState extends State<ChalkTalk> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.asset(
-                              'assets/bakcground.jpg', // Corrected the path
+                              'assets/bakcground.jpg', // Ensure correct path
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(width: 10), // Space between image and text
-                      Flexible(
-                        flex: 7,
+                      SizedBox(width: 10),
+                      Expanded(
+                        flex: 5,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 20),
-                              child: Text(
-                                "Living Maths Grade 4-5",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                            SizedBox(height: 20),
+                            Center(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    "Living Maths Grade 4 - 5",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                      
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    "Learn Maths in a way like never before",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
                               ),
                             ),
-                            SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Icon(Icons.person, size: 20),
-                                SizedBox(width: 4),
-                                Text(
-                                  "By : Steve Sherman",
-                                  style: TextStyle(fontSize: 12),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Icon(Icons.timeline, size: 20),
-                                SizedBox(width: 4),
-                                Text(
-                                  "Total Sessions : 1",
-                                  style: TextStyle(fontSize: 12),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 10),
-                            Row(
-                              children: [
-                                Icon(Icons.calendar_today, size: 20),
-                                SizedBox(width: 4),
-                                Text(
-                                  "12th May 2025",
-                                  style: TextStyle(fontSize: 12),
-                                ),
-                              ],
+                            Align(
+                              alignment: Alignment.center,
+                              child: IconButton(
+                                icon: Icon(Icons.more_horiz, size: 25),
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return SizedBox(
+                                        width: double.infinity,
+                                        child: Card(
+                                          margin: EdgeInsets.all(16.0),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(16.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Text(
+                                                  'Details',
+                                                  style: TextStyle(
+                                                    fontSize: 20,
+                                                    color: Colors.grey,
+                                                  ),
+                                                ),
+                                                Divider(color: Colors.grey),
+                                                SizedBox(height: 20),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.date_range, size: 24, color: Colors.blue),
+                                                    SizedBox(width: 16),
+                                                    Text(
+                                                      'Date: 12 May 2025',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.black87,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Divider(color: Colors.grey.shade300, thickness: 1),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.access_time, size: 24, color: Colors.orange),
+                                                    SizedBox(width: 16),
+                                                    Text(
+                                                      'Timings: 11am to 2pm',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.black87,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Divider(color: Colors.grey.shade300, thickness: 1),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.calendar_today, size: 24, color: Colors.green),
+                                                    SizedBox(width: 16),
+                                                    Text(
+                                                      'Days: Saturday and Sunday',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.black87,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Divider(color: Colors.grey.shade300, thickness: 1),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.person, size: 24, color: Colors.purple),
+                                                    SizedBox(width: 16),
+                                                    Text(
+                                                      'Instructor: Steve Sherman',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.black87,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Divider(color: Colors.grey.shade300, thickness: 1),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.attach_money, size: 24, color: Colors.red),
+                                                    SizedBox(width: 16),
+                                                    Text(
+                                                      'Fee: 200\$', 
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.black87,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Divider(color: Colors.grey.shade300, thickness: 1),
+                                                Row(
+                                                  children: [
+                                                    Icon(Icons.event_note, size: 24, color: Colors.teal),
+                                                    SizedBox(width: 16),
+                                                    Text(
+                                                      'Total Sessions: 1',
+                                                      style: TextStyle(
+                                                        fontSize: 18,
+                                                        fontWeight: FontWeight.w500,
+                                                        color: Colors.black87,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                SizedBox(height: 20),
+                                                ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                                                  onPressed: () {},
+                                                  child: Text("Book Now!"),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                              ),
                             ),
                           ],
                         ),
                       ),
                     ],
-                  ),
-                  SizedBox(height: 20), // Space between the Row and the bottom text
-                  Center(
-                    child: Text(
-                      "Learn Maths in a way like never before",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontStyle: FontStyle.italic,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          icon: Icon(Icons.more_horiz, size: 25),
-                          onPressed: () {
-                            showModalBottomSheet(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return SizedBox(
-
-                                  width: double.infinity, 
-                                  height: double.infinity,
-                                  child: Card(
-                                    margin: EdgeInsets.all(16.0),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(
-                                            'Details',
-                                            style: TextStyle(
-                                              fontSize: 20,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                          Divider(color: Colors.grey,),
-                                          SizedBox(height: 20),
-
-                                         Column(
-              crossAxisAlignment: CrossAxisAlignment.start, // Aligns children to the start of the column
-              children: [
-                Row(
-                  children: [
-                    
-                    Icon(
-                      Icons.currency_bitcoin,
-                      size: 24, // Size of the icon
-                    ),
-                    SizedBox(width: 16), // Width of the gap between the icon and text
-                    Text(
-                      'Fee: 200\$',
-                      style: TextStyle(fontSize: 18), // Style of the text
-                    ),
-                  ],
-                ),
-
-                Divider(color: Colors.red,),
-                SizedBox(height: 20), // Space between rows
-                Row(
-                  children: [
-                    Icon(
-                      Icons.alarm,
-                      size: 24, // Size of the icon
-                    ),
-                    SizedBox(width: 16), // Width of the gap between the icon and text
-                    Text(
-                      'Timings :  11am to 2pm',
-                      style: TextStyle(fontSize: 18), // Style of the text
-                    ),
-                  ],
-                ),
-                Divider(color: Colors.red,),
-                SizedBox(height: 20), // Space between rows
-                Row(
-                  children: [
-                    Icon(
-                      Icons.date_range,
-                      size: 24, // Size of the icon
-                    ),
-                    SizedBox(width: 16), // Width of the gap between the icon and text
-                    Text(
-                      'Days : Saturday and Sunday',
-                      style: TextStyle(fontSize: 18), // Style of the text
-                    ),
-                  ],
-                ),
-                Divider(color: Colors.red,),
-
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: ))
-                  },
-                  child: Text("Book Now !")
-                )
-              ],
-
-              
-            ),
-
-                                          
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                        ),
-                      ],
-                    ),
                   ),
                 ],
               ),
