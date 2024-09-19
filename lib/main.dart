@@ -1,4 +1,5 @@
 import 'package:day2_another_gui/gui.dart';
+import 'package:day2_another_gui/slider.dart';
 import 'package:flutter/material.dart';
 
 void main() {
