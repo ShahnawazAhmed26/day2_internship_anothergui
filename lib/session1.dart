@@ -9,24 +9,17 @@ class SessionDetailsScreen1 extends StatefulWidget {
 class _SessionDetailsScreen1State extends State<SessionDetailsScreen1> {
   bool _isGradientChanged = false;
 
-  void _toggleGradient() {
-    setState(() {
-      _isGradientChanged = !_isGradientChanged;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Center(
-          child: Text(
-            "Session Details",
-            style: TextStyle(color: Colors.black87),
-          ),
+        title: Text(
+          "Session Details",
+          style: TextStyle(color: Colors.black87),
         ),
-        elevation: 0, // Removes the shadow to make it look cleaner
+        centerTitle: true, // Center the title without the need for `Center` widget
+        elevation: 0,
       ),
       body: Card(
         shape: RoundedRectangleBorder(
@@ -44,8 +37,6 @@ class _SessionDetailsScreen1State extends State<SessionDetailsScreen1> {
                   _buildCarouselItem("https://c4.wallpaperflare.com/wallpaper/825/375/685/dota-2-wallpaper-preview.jpg"),
                   _buildCarouselItem("https://c4.wallpaperflare.com/wallpaper/952/657/195/dota-2-4k-desktop-wallpaper-preview.jpg"),
                   _buildCarouselItem("https://c4.wallpaperflare.com/wallpaper/957/398/569/dota-2-dota-legion-commander-warrior-wallpaper-preview.jpg"),
-                  _buildCarouselItem("https://c4.wallpaperflare.com/wallpaper/952/657/195/dota-2-4k-desktop-wallpaper-preview.jpg"),
-                  _buildCarouselItem("https://c4.wallpaperflare.com/wallpaper/825/375/685/dota-2-wallpaper-preview.jpg"),
                 ],
                 options: CarouselOptions(
                   height: 180.0,
@@ -104,7 +95,7 @@ class _SessionDetailsScreen1State extends State<SessionDetailsScreen1> {
               // Bottom Details
               BottomCardElements(
                 date: 'Friday, May 19, 2023',
-                timings: '20:00 - 21:00 24hrs',
+                timings: '08:00 - 09:00 24hrs',
                 days: 'Single Day',
                 instructor: 'Steve Sherman',
                 fee: 'No Charges',
@@ -116,30 +107,25 @@ class _SessionDetailsScreen1State extends State<SessionDetailsScreen1> {
               AnimatedContainer(
                 duration: Duration(seconds: 2),
                 decoration: BoxDecoration(
-                  gradient: _isGradientChanged
-                      ? LinearGradient(
-                          colors: [Colors.blue, Colors.purple],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        )
-                      : LinearGradient(
-                          colors: [Colors.green, Colors.lightGreen],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
+                  gradient: LinearGradient(
+                    colors: [Colors.green, Colors.lightGreen],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent, // Makes the button's background transparent
-                    shadowColor: Colors.transparent, // Removes the shadow
+                    backgroundColor: Colors.transparent, // Keeps the button's background transparent
+                    shadowColor: Colors.transparent,
                     padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                   ),
-                  onPressed: _toggleGradient,
+                  onPressed: () {
+                    // Add any functionality here
+                  },
                   child: SizedBox(
                     width: 300,
-                    child: Align(
-                      alignment: Alignment.center,
+                    child: Center(
                       child: Text(
                         'Book Now!',
                         style: TextStyle(color: Colors.white, fontSize: 16),
@@ -148,6 +134,7 @@ class _SessionDetailsScreen1State extends State<SessionDetailsScreen1> {
                   ),
                 ),
               ),
+              SizedBox(height: 16), // Extra spacing for better visual appeal
             ],
           ),
         ),
